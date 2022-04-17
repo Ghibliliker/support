@@ -1,1 +1,1 @@
-# support
+[![Django-support workflow](https://github.com/Ghibliliker/support/actions/workflows/support.yml/badge.svg?branch=main&event=push)](https://github.com/Ghibliliker/support/actions/workflows/support.yml)
