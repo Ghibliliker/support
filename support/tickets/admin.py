@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from tickets.models import Ticket, Comment
+from tickets.models import Comment, Ticket
 
 
 @admin.register(Ticket)

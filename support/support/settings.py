@@ -1,7 +1,6 @@
-from os.path import abspath, dirname, join
-from datetime import timedelta
 import os
-
+from datetime import timedelta
+from os.path import abspath, dirname, join
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
 

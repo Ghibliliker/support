@@ -1,5 +1,5 @@
-from rest_framework import serializers
 from drf_extra_fields.fields import Base64ImageField
+from rest_framework import serializers
 
 from tickets.models import Comment, Ticket
 from users.serializers import CustomUserSerializer
