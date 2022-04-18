@@ -5,16 +5,10 @@ from users.models import User
 
 
 class Ticket(models.Model):
-
-    ACTIVE = 'active'
-    COMPLITE = 'complite'
-    FROZEN = 'frozen'
-
-    STATUS_CHOICE = [
-        (ACTIVE, 'active'),
-        (COMPLITE, 'complite'),
-        (FROZEN, 'frozen'),
-    ]
+    class Status(models.TextChoices):
+        ACTIVE = 'active'
+        COMPLITE = 'complite'
+        FROZEN = 'frozen'
 
     name = models.TextField(verbose_name='имя тикета')
     text = models.TextField(
@@ -29,8 +23,8 @@ class Ticket(models.Model):
     status = models.CharField(
         verbose_name='статус тикета',
         max_length=20,
-        choices=STATUS_CHOICE,
-        default=ACTIVE,
+        choices=Status.choices,
+        default=Status.ACTIVE,
     )
     author = models.ForeignKey(
         User,
