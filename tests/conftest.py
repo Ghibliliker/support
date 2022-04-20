@@ -26,6 +26,6 @@ def token_user(user):
 def user_client(token_user):
     from rest_framework.test import APIClient
 
-    client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION=f'Bearer {token_user["access"]}')
-    return client
+    user = APIClient()
+    user.credentials(HTTP_AUTHORIZATION=f'Bearer {token_user["access"]}')
+    return user

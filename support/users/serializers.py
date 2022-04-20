@@ -1,9 +1,10 @@
-from djoser.serializers import UserSerializer
+from rest_framework import serializers
 
 from users.models import User
 
 
-class CustomUserCreateSerializer(UserSerializer):
+class CustomUserCreateSerializer(serializers.ModelSerializer):
+    """Serializer for create or update users"""
     class Meta:
         model = User
         fields = (
@@ -21,8 +22,8 @@ class CustomUserCreateSerializer(UserSerializer):
         return user
 
 
-class CustomUserSerializer(UserSerializer):
-
+class CustomUserSerializer(serializers.ModelSerializer):
+    """Serializer for get users"""
     class Meta:
         model = User
         fields = (

@@ -6,7 +6,7 @@ from users.serializers import CustomUserSerializer
 
 
 class TicketCreateSerializer(serializers.ModelSerializer):
-
+    """Serializer for create or update tickets"""
     image = Base64ImageField(required=False)
 
     class Meta:
@@ -22,6 +22,7 @@ class TicketCreateSerializer(serializers.ModelSerializer):
 
 
 class TicketListSerializer(serializers.ModelSerializer):
+    """Serializer for get tickets"""
     comments = serializers.SerializerMethodField(read_only=True)
     author = CustomUserSerializer()
 
@@ -35,14 +36,14 @@ class TicketListSerializer(serializers.ModelSerializer):
 
 
 class TicketStatusSerializer(serializers.ModelSerializer):
-
+    """Serializer for update tickets status"""
     class Meta:
         model = Ticket
         fields = ('status',)
 
 
 class CommentCreateSerializer(serializers.ModelSerializer):
-
+    """Serializer for create or update comments"""
     image = Base64ImageField(required=False)
 
     class Meta:
@@ -58,7 +59,7 @@ class CommentCreateSerializer(serializers.ModelSerializer):
 
 
 class CommentListSerializer(serializers.ModelSerializer):
-
+    """Serializer for get comments"""
     author = CustomUserSerializer()
 
     class Meta:
