@@ -16,6 +16,7 @@ from support.tasks import send_mail_user
 
 
 class TicketViewSet(viewsets.ModelViewSet):
+    """Tickets view"""
     queryset = Ticket.objects.all()
     permission_classes = [OwnerOrReadOnly]
     pagination_class = TicketCommentPagination
@@ -41,7 +42,8 @@ class TicketViewSet(viewsets.ModelViewSet):
         detail=True,
         permission_classes=(SupportOnly,),
         methods=['PATCH'])
-    def status(self, request, pk):
+    def status(self, request, pk) -> Response:
+        """Changing ticket status by support"""
         obj = self.get_object()
         user_email = obj.author.email
         serializer = TicketStatusSerializer(
@@ -55,6 +57,7 @@ class TicketViewSet(viewsets.ModelViewSet):
 
 
 class CommentViewSet(viewsets.ModelViewSet):
+    """Ticket comments by id"""
     pagination_class = TicketCommentPagination
     filter_backends = (filters.OrderingFilter,)
     ordering_fields = ('pub_date',)

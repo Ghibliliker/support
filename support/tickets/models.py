@@ -10,18 +10,18 @@ class Ticket(models.Model):
         COMPLITE = 'complite'
         FROZEN = 'frozen'
 
-    name = models.TextField(verbose_name='имя тикета')
+    name = models.TextField(verbose_name='ticket name')
     text = models.TextField(
-        verbose_name='текст тикета',
-        help_text='Напишите текст',
+        verbose_name='ticket text',
+        help_text='write text',
     )
     image = models.ImageField(
-        'Картинка',
+        'image',
         upload_to='tickets/',
         blank=True, null=True
     )
     status = models.CharField(
-        verbose_name='статус тикета',
+        verbose_name='ticket status',
         max_length=20,
         choices=Status.choices,
         default=Status.ACTIVE,
@@ -29,39 +29,39 @@ class Ticket(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=CASCADE,
-        verbose_name='автор тикета',
+        verbose_name='ticket author',
         related_name='tickets'
     )
-    pub_date = models.DateTimeField('дата создания тикета', auto_now_add=True)
+    pub_date = models.DateTimeField('ticket creation date', auto_now_add=True)
 
     class Meta:
         ordering = ['-pub_date']
-        verbose_name = 'Тикет'
-        verbose_name_plural = 'Тикеты'
+        verbose_name = 'Ticket'
+        verbose_name_plural = 'Tickets'
 
 
 class Comment(models.Model):
     ticket = models.ForeignKey(
         Ticket,
         on_delete=models.CASCADE,
-        verbose_name='коммент тикета',
+        verbose_name='ticket comment',
         related_name='comments'
     )
     text = models.TextField(
-        verbose_name='текст комментария',
+        verbose_name='text comment',
         blank=False,
-        help_text='Напишите комментарий',
+        help_text='write text',
     )
-    image = models.ImageField('Картинка', upload_to='tickets/', blank=True)
+    image = models.ImageField('image', upload_to='tickets/', blank=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name='автор комментария',
+        verbose_name='comment author',
         related_name='comments'
     )
-    pub_date = models.DateTimeField('дата комментария', auto_now_add=True)
+    pub_date = models.DateTimeField('comment creation date', auto_now_add=True)
 
     class Meta:
         ordering = ['-pub_date']
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
