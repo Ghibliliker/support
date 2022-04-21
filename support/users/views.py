@@ -41,7 +41,7 @@ class UserViewSet(CreateListViewSet):
                 status=status.HTTP_200_OK
             )
 
-        if request.method == 'PATCH':
+        else:
             serializer = CustomUserCreateSerializer(
                 user,
                 data=request.data,
