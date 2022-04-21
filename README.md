@@ -11,7 +11,7 @@
 Python 3
 Django
 Django REST Framework
-Djoser +  JWT
+JWT
 PostgreSQL
 PyTest
 Docker
@@ -39,15 +39,28 @@ EMAIL_HOST_PASSWORD=***
 EMAIL_USE_TLS=***
 EMAIL_USE_SSL=***
 ```
-4. Сборка и запуск контейнера docker-compose up -d --build
-5. Миграции docker-compose exec support python manage.py makemigrations docker-compose exec support python manage.py migrate
-6. Сбор статики docker-compose exec support python manage.py collectstatic --noinput
-7. Создание суперпользователя Django docker-compose exec support python manage.py createsuperuser
+4. Сборка и запуск контейнера
+```
+docker-compose up -d --build
+```
+5. Миграции
+```
+docker-compose exec support python manage.py makemigrations
+docker-compose exec support python manage.py migrate
+```
+7. Сбор статики
+```
+docker-compose exec support python manage.py collectstatic --noinput
+```
+8. Создание суперпользователя Django
+```
+docker-compose exec support python manage.py createsuperuser
+```
 
 ## Тестирование:
 
 Тестирование проекта реализовано через GitHub Actions:
-При push в main код автоматически проверяется flake8, запускается pytest 
+При push код автоматически проверяется flake8, запускается pytest 
 
 ## Эндпоинты, поддерживаемые API:
 
