@@ -59,8 +59,8 @@ docker-compose exec support python manage.py createsuperuser
 
 ## Testing:
 
-Project testing implemented via GitHub Actions:
-When pushing, the code is automatically checked by flake8
+Project testing implemented via GitHub Actions:  
+When pushing, the code is automatically checked by flake8  
 You can also use pytest on your local machine
 ```
 pytest
