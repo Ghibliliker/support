@@ -15,3 +15,4 @@ class UserAdmin(admin.ModelAdmin):
     )
     search_fields = ('username', 'email')
     list_filter = ('is_support',)
+    readonly_fields = ('id',)

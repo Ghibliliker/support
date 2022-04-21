@@ -5,10 +5,11 @@ from support.settings import EMAIL_HOST_USER
 
 
 @app.task
-def send_mail_user(mail_user):
+def send_mail_user(mail_user: str) -> None:
+    """Send mail to user about ticket status"""
     send_mail(
-        'Оповещение от поддержки',
-        'Статус вашего тикета был изменён.',
+        'Support alert',
+        'Your ticket status has changed.',
         f'{EMAIL_HOST_USER}',
         [f'{mail_user}'],
         fail_silently=False,

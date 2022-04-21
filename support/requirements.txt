@@ -8,12 +8,11 @@ djangorestframework_simplejwt
 django-filter
 gunicorn==20.0.4
 psycopg2-binary==2.8.6
-PyJWT==2.1.0
 pytz==2020.1
 sqlparse==0.3.1
 asgiref==3.5.0
-djoser
 pillow
 drf-extra-fields
+drf-yasg
 celery
 redis

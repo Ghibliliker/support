@@ -21,7 +21,6 @@ jobs:
         pip install -r requirements.txt
         cd ..
 
-    - name: Test with flake8 and pytest
+    - name: Test with flake8
       run: |
         python -m flake8
-        pytest
